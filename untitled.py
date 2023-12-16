@@ -80,7 +80,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1242, 792)
-        MainWindow.setStyleSheet("background-color: rgb(212, 255, 250);")
+        MainWindow.setStyleSheet("background-color: rgb(240, 240, 240);")
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.pushButton = QtWidgets.QPushButton(parent=self.centralwidget)
@@ -97,7 +97,7 @@ class Ui_MainWindow(object):
         self.pic = QtWidgets.QLabel(parent=self.centralwidget)
         self.pic.setGeometry(QtCore.QRect(210, 140, 501, 401))
         self.pic.setStyleSheet("background-color: rgb(85, 255, 0);\n"
-"color: rgb(255, 255, 127);")
+"color: rgb(240, 240, 240);")
         self.pic.setText("")
         #self.pic.setPixmap(QtGui.QPixmap("1_7000.png"))
         self.pic.setScaledContents(True)
@@ -145,7 +145,7 @@ class Ui_MainWindow(object):
         self.Logo.setText(_translate("MainWindow", "Дорожный патруль"))
         self.label.setText(_translate("MainWindow", ""))
         self.pushButton_3.setText(_translate("MainWindow", "Очистить форму"))
-        self.Teee.setText(_translate("MainWindow", "Принадлоежность к группе"))
+        self.Teee.setText(_translate("MainWindow", "Принадлоежность к группе: "))
 
 
 if __name__ == "__main__":

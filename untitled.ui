@@ -14,7 +14,7 @@
    <string>Тест приложения на Python</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(212, 255, 250);</string>
+   <string notr="true">background-color:rgb(240, 240, 240) </string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="pushButton">
@@ -26,6 +26,9 @@
       <height>81</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(200, 200, 200);</string>
+    </property>
     <property name="text">
      <string>Выбрать файл</string>
     </property>
@@ -33,15 +36,19 @@
    <widget class="QLabel" name="Logo">
     <property name="geometry">
      <rect>
-      <x>370</x>
+      <x>350</x>
       <y>40</y>
-      <width>341</width>
+      <width>431</width>
       <height>81</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>22</pointsize>
+      <family>Times New Roman</family>
+      <pointsize>26</pointsize>
+      <weight>75</weight>
+      <italic>true</italic>
+      <bold>true</bold>
      </font>
     </property>
     <property name="acceptDrops">
@@ -51,7 +58,7 @@
      <number>1</number>
     </property>
     <property name="text">
-     <string>Дорожный патруль</string>
+     <string> Дорожный патруль</string>
     </property>
    </widget>
    <widget class="QLabel" name="pic">
@@ -102,7 +109,7 @@ color: rgb(255, 255, 127);</string>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>790</x>
+      <x>720</x>
       <y>250</y>
       <width>401</width>
       <height>61</height>
@@ -110,11 +117,12 @@ color: rgb(255, 255, 127);</string>
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
+      <family>Times New Roman</family>
+      <pointsize>20</pointsize>
      </font>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_3">
@@ -126,6 +134,9 @@ color: rgb(255, 255, 127);</string>
       <height>81</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(200, 200, 200);</string>
+    </property>
     <property name="text">
      <string>Очистить форму</string>
     </property>
@@ -133,7 +144,7 @@ color: rgb(255, 255, 127);</string>
    <widget class="QLabel" name="Teee">
     <property name="geometry">
      <rect>
-      <x>790</x>
+      <x>740</x>
       <y>200</y>
       <width>421</width>
       <height>41</height>
@@ -141,11 +152,12 @@ color: rgb(255, 255, 127);</string>
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
+      <family>Times New Roman</family>
+      <pointsize>18</pointsize>
      </font>
     </property>
     <property name="text">
-     <string>Принадлоежность к группе</string>
+     <string>Принадлоежность к группе:</string>
     </property>
    </widget>
   </widget>
