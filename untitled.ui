@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1036</width>
-    <height>796</height>
+    <width>1242</width>
+    <height>792</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>410</x>
+      <x>210</x>
       <y>590</y>
       <width>181</width>
       <height>81</height>
@@ -30,11 +30,11 @@
      <string>Выбрать файл</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="Logo">
     <property name="geometry">
      <rect>
-      <x>460</x>
-      <y>30</y>
+      <x>370</x>
+      <y>40</y>
       <width>341</width>
       <height>81</height>
      </rect>
@@ -54,34 +54,11 @@
      <string>Дорожный патруль</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>180</y>
-      <width>201</width>
-      <height>22</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_2">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>50</y>
-      <width>71</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Каталог</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="pic">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>150</y>
+      <x>210</x>
+      <y>140</y>
       <width>501</width>
       <height>401</height>
      </rect>
@@ -103,14 +80,14 @@ color: rgb(255, 255, 127);</string>
    <widget class="QLabel" name="eticetka">
     <property name="geometry">
      <rect>
-      <x>290</x>
+      <x>210</x>
       <y>40</y>
       <width>91</width>
       <height>81</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 170, 0);</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string/>
@@ -122,14 +99,19 @@ color: rgb(255, 255, 127);</string>
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="navs">
+   <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>240</y>
-      <width>301</width>
-      <height>321</height>
+      <x>790</x>
+      <y>250</y>
+      <width>401</width>
+      <height>61</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>TextLabel</string>
@@ -138,14 +120,32 @@ color: rgb(255, 255, 127);</string>
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
-      <x>680</x>
-      <y>600</y>
-      <width>171</width>
-      <height>71</height>
+      <x>530</x>
+      <y>590</y>
+      <width>181</width>
+      <height>81</height>
      </rect>
     </property>
     <property name="text">
-     <string>Clear</string>
+     <string>Очистить форму</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Teee">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>200</y>
+      <width>421</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Принадлоежность к группе</string>
     </property>
    </widget>
   </widget>
@@ -154,7 +154,7 @@ color: rgb(255, 255, 127);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1036</width>
+     <width>1242</width>
      <height>26</height>
     </rect>
    </property>
