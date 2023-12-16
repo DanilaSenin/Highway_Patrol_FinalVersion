@@ -10,6 +10,12 @@
     <height>792</height>
    </rect>
   </property>
+  <property name="baseSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>Тест приложения на Python</string>
   </property>
@@ -22,21 +28,34 @@
      <rect>
       <x>210</x>
       <y>590</y>
-      <width>181</width>
+      <width>191</width>
       <height>81</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Times New Roman</family>
+      <family>Arial</family>
       <pointsize>14</pointsize>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(200, 200, 200);</string>
+     <string notr="true">background-color: rgb(200, 230, 230);
+border-top-color: rgb(121, 192, 207);
+border-bottom-color: rgb(121, 192, 207);
+border-radius: 10px; 
+border: 4px; 
+border-color: rgb(121, 170, 210);
+ border-style:solid; 
+ </string>
     </property>
     <property name="text">
      <string>Выбрать файл</string>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLabel" name="Logo">
@@ -44,13 +63,13 @@
      <rect>
       <x>350</x>
       <y>40</y>
-      <width>431</width>
+      <width>451</width>
       <height>81</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Times New Roman</family>
+      <family>Arial</family>
       <pointsize>26</pointsize>
       <weight>75</weight>
       <italic>true</italic>
@@ -106,7 +125,7 @@ color: rgb(255, 255, 127);</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>RP_logo_PNG3.png</pixmap>
+     <pixmap>../Фото знаков/RP_logo_PNG3.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -136,23 +155,50 @@ color: rgb(255, 255, 127);</string>
      <rect>
       <x>530</x>
       <y>590</y>
-      <width>181</width>
+      <width>191</width>
       <height>81</height>
      </rect>
     </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="sizeIncrement">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="baseSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
     <property name="font">
      <font>
-      <family>Times New Roman</family>
+      <family>Arial</family>
       <pointsize>14</pointsize>
       <weight>50</weight>
       <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(200, 200, 200);</string>
+     <string notr="true">background-color: rgb(200, 230, 240);
+border-top-color: rgb(121, 192, 207);
+border-bottom-color: rgb(121, 192, 207);
+border-radius: 10px; 
+border: 4px; 
+border-color: rgb(121, 170, 210);
+ border-style:solid; </string>
     </property>
     <property name="text">
      <string>Очистить форму</string>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLabel" name="Teee">
@@ -166,7 +212,7 @@ color: rgb(255, 255, 127);</string>
     </property>
     <property name="font">
      <font>
-      <family>Times New Roman</family>
+      <family>Arial</family>
       <pointsize>18</pointsize>
      </font>
     </property>
@@ -187,14 +233,24 @@ color: rgb(255, 255, 127);</string>
      <font>
       <family>Calibri</family>
       <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">alternate-background-color: rgb(200, 200, 200);
-background-color: rgb(200, 200, 200);</string>
+     <string notr="true">background-color: rgb(200, 210, 250);
+border-top-color: rgb(121, 192, 207);
+border-bottom-color: rgb(121, 192, 207);
+border-radius: 10px; 
+border: 4px; 
+border-color: rgb(121, 170, 210);
+ border-style:solid; </string>
     </property>
     <property name="text">
      <string>Выход</string>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
     </property>
    </widget>
   </widget>
