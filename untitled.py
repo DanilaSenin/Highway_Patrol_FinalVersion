@@ -55,14 +55,11 @@ class Ui_MainWindow(object):
             file_dialog.exec()
             # Получение выбранного пути к файлу
             filepath = file_dialog.selectedFiles()[0]
-            n = 0
             if filepath:
                 original_fp = filepath
-                n += 1
-                new_file = '.\\1' + str(n) + '.pic.' + filepath.split('.')[-1]
+                new_file = '.\\1' + '.pic.' + filepath.split('.')[-1]
                 if os.path.exists(new_file):
-                    n += 1
-                    new_file = '.\\1' + str(n) + '.pic.' + filepath.split('.')[-1]
+                    new_file = '.\\1' + '.pic.' + filepath.split('.')[-1]
                 shutil.copy(filepath, new_file)
                 filepath = new_file
                 self.filepath = filepath
@@ -70,6 +67,10 @@ class Ui_MainWindow(object):
                 self.label.setText(self.getpose(filepath))
         except Exception as e:
             print(f"Произошла ошибка: {e}")
+
+    def Exit(self):
+        sys.exit()
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1242, 792)
@@ -101,7 +102,7 @@ class Ui_MainWindow(object):
         self.pic.setStyleSheet("background-color: rgb(85, 255, 0);\n"
 "color: rgb(255, 255, 127);")
         self.pic.setText("")
-        self.pic.setPixmap(QtGui.QPixmap("1_7000.png"))
+        self.pic.setPixmap(QtGui.QPixmap("RP_logo_PNG3.png"))
         self.pic.setScaledContents(True)
         self.pic.setObjectName("pic")
         self.eticetka = QtWidgets.QLabel(parent=self.centralwidget)
@@ -136,6 +137,15 @@ class Ui_MainWindow(object):
         font.setPointSize(18)
         self.Teee.setFont(font)
         self.Teee.setObjectName("Teee")
+        self.pushButton_2 = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.pushButton_2.setGeometry(QtCore.QRect(980, 690, 171, 51))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        self.pushButton_2.setFont(font)
+        self.pushButton_2.setStyleSheet("alternate-background-color: rgb(200, 200, 200);\n"
+"background-color: rgb(200, 200, 200);")
+        self.pushButton_2.setObjectName("pushButton_2")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1242, 26))
@@ -147,6 +157,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         self.pushButton.clicked.connect(self.load) # type: ignore
+        self.pushButton_2.clicked.connect(self.Exit)
         self.pushButton_3.clicked.connect(self.pic.clear) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -157,6 +168,7 @@ class Ui_MainWindow(object):
         self.Logo.setText(_translate("MainWindow", " Дорожный патруль"))
         self.pushButton_3.setText(_translate("MainWindow", "Очистить форму"))
         self.Teee.setText(_translate("MainWindow", "Принадлоежность к группе:"))
+        self.pushButton_2.setText(_translate("MainWindow", "Выход"))
 
 
 if __name__ == "__main__":

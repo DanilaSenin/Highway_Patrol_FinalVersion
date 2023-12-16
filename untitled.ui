@@ -84,7 +84,7 @@ color: rgb(255, 255, 127);</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>1_7000.png</pixmap>
+     <pixmap>RP_logo_PNG3.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -172,6 +172,29 @@ color: rgb(255, 255, 127);</string>
     </property>
     <property name="text">
      <string>Принадлоежность к группе:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>980</x>
+      <y>690</y>
+      <width>171</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">alternate-background-color: rgb(200, 200, 200);
+background-color: rgb(200, 200, 200);</string>
+    </property>
+    <property name="text">
+     <string>Выход</string>
     </property>
    </widget>
   </widget>
