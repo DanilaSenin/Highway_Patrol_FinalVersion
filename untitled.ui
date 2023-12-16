@@ -26,6 +26,12 @@
       <height>81</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(200, 200, 200);</string>
     </property>
@@ -109,8 +115,8 @@ color: rgb(255, 255, 127);</string>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>720</x>
-      <y>250</y>
+      <x>740</x>
+      <y>240</y>
       <width>401</width>
       <height>61</height>
      </rect>
@@ -133,6 +139,14 @@ color: rgb(255, 255, 127);</string>
       <width>181</width>
       <height>81</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(200, 200, 200);</string>
