@@ -7,7 +7,7 @@
 
 
 from PyQt6 import QtWidgets, QtCore, QtGui
-from PyQt6.QtGui import QFont, QPixmap
+from PyQt6.QtGui import QFont, QPixmap, QImage
 from PyQt6.QtWidgets import QApplication, QMainWindow, QFileDialog
 import numpy as np
 import PIL
@@ -21,48 +21,76 @@ import shutil
 
 class Ui_MainWindow(object):
     def __init__(self):
-        super(Ui_MainWindow,self).__init__()
-        self.model = tf.keras.models.load_model('.\\model.h5')
-        self.class_names = ['1', '2', '3', '4', '5', '6', '7', '8']
-        #self.setupUi(MainWindow)
-
+        try:
+            super(Ui_MainWindow,self).__init__()
+            self.model = tf.keras.models.load_model('model.h5')
+            self.class_names = ['1', '2', '3', '4', '5', '6', '7', '8']
+            #self.setupUi(MainWindow)
+        except Exception as e:
+            print(f"Произошла ошибка: {e}")
     def getpose(self, filepath):
-        res = 50
-        im = PIL.Image.open(filepath)
-        im = im.convert('RGB')
-        im = im.resize((res, res), PIL.Image.Resampling.LANCZOS)
-        im = np.asarray(im)
-        im = im/255.
-        im = im.reshape((1, res, res, 3))
-        pred = self.model.predict(im, verbose=0)
-        pred_class = self.class_names[np.argmax(pred)]
-        pred_class = pred_class.replace('_', ' ')
-        os.remove(filepath)
-        return pred_class
+        try:
+            res = 80
+            im = PIL.Image.open(filepath)
+            im = im.convert('RGB')
+            im = im.resize((res, res), PIL.Image.Resampling.LANCZOS)
+            im = np.asarray(im)
+            im = im/255.
+            im = im.reshape((1, res, res, 3))
+            pred = self.model.predict(im, verbose=0)
+            pred_class = self.class_names[np.argmax(pred)]
+            pred_class = pred_class.replace('_', ' ')
+            os.remove(filepath)
+            return pred_class
+
+        except Exception as e:
+            print(f"Произошла ошибка: {e}")
 
     def load(self):
-        options = QFileDialog.Options()
-        options |= QFileDialog.DontUseNativeDialog
-        filepath, _ = QFileDialog.getOpenFileName(self, "QFileDialog.getOpenFileName()", "", "All Files (*)",
-                                                  options=options)
-        if filepath:
-            original_fp = filepath
-            new_file = '.\\pic.' + filepath.split('.')[-1]
-            if os.path.exists(new_file):
-                os.remove(new_file)
-            shutil.copy(filepath, new_file)
-            filepath = new_file
-            self.filepath = filepath
-            self.pic.setText(original_fp)
-            self.pic.adjustSize()
-            self.label.setText(self.getpose(filepath))
-            self.label.adjustSize()
+        try:
+            file_dialog = QFileDialog()
+            # Установка фильтра для выбора только файлов изображений
+            file_dialog.setNameFilter("Images (*.png *.xpm *.jpg *.bmp)")
+            file_dialog.selectNameFilter("Images (*.png *.xpm *.jpg *.bmp)")
+            # Открытие диалогового окна
+            file_dialog.exec()
+            # Получение выбранного пути к файлу
+            filepath = file_dialog.selectedFiles()[0]
+            if filepath:
+                original_fp = filepath
+                new_file = '.\\pic.' + filepath.split('.')[-1]
+                if os.path.exists(new_file):
+                    os.remove(new_file)
+                shutil.copy(filepath, new_file)
+                self.navs.setText((filepath))
+                self.pic.setPixmap(QtGui.QPixmap(new_file))
+                self.label.setText(self.getpose(filepath))
+        except Exception as e:
+            print(f"Произошла ошибка: {e}")
+        # if filepath:
+            # original_fp = filepath
+            # new_file = '.\\pic.' + filepath.split('.')[-1]
+            # if os.path.exists(new_file):
+            #     os.remove(new_file)
+            # shutil.copy(filepath, new_file)
+            # filepath = new_file
+            # self.filepath = filepath
+            # self.navs.setText(("MainWindow", filepath))
+            # #self.navs.setText(filepath)
+            # self.navs.adjustSize()
+            # pathw = self.navs.width()
+            # pathh = self.navs.height()
+            # self.navs.setGeometry(220, 40, pathw, pathh)
+            # self.pic.setPixmap(QtGui.QPixmap(filepath))
+            # self.label.setText(self.getpose(filepath))
+            # self.label.adjustSize()
+            # posew = self.label.width()
 
-        pass
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1036, 796)
+        MainWindow.setStyleSheet("background-color: rgb(212, 255, 250);")
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.pushButton = QtWidgets.QPushButton(parent=self.centralwidget)
@@ -82,17 +110,30 @@ class Ui_MainWindow(object):
         self.pushButton_2 = QtWidgets.QPushButton(parent=self.centralwidget)
         self.pushButton_2.setGeometry(QtCore.QRect(60, 50, 71, 71))
         self.pushButton_2.setObjectName("pushButton_2")
+        self.pushButton_2.clicked.connect(self.load)
         self.pic = QtWidgets.QLabel(parent=self.centralwidget)
-        self.pic.setGeometry(QtCore.QRect(340, 150, 501, 401))
+        self.pic.setGeometry(QtCore.QRect(350, 150, 501, 401))
         self.pic.setStyleSheet("background-color: rgb(85, 255, 0);\n"
 "color: rgb(255, 255, 127);")
+        self.pic.setText("")
+        #self.pic.setPixmap(QtGui.QPixmap("1_7000.png"))
+        self.pic.setScaledContents(True)
         self.pic.setObjectName("pic")
         self.eticetka = QtWidgets.QLabel(parent=self.centralwidget)
-        self.eticetka.setGeometry(QtCore.QRect(260, 50, 91, 81))
+        self.eticetka.setGeometry(QtCore.QRect(290, 40, 91, 81))
+        self.eticetka.setStyleSheet("background-color: rgb(255, 170, 0);")
+        self.eticetka.setText("")
+        self.eticetka.setPixmap(QtGui.QPixmap("RP_logo_PNG3.png"))
+        self.eticetka.setScaledContents(True)
         self.eticetka.setObjectName("eticetka")
+
         self.navs = QtWidgets.QLabel(parent=self.centralwidget)
-        self.navs.setGeometry(QtCore.QRect(110, 570, 55, 16))
+        self.navs.setGeometry(QtCore.QRect(110, 570, 100, 91))
         self.navs.setObjectName("navs")
+
+        self.pushButton_3 = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.pushButton_3.setGeometry(QtCore.QRect(680, 600, 171, 71))
+        self.pushButton_3.setObjectName("pushButton_3")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1036, 26))
@@ -103,6 +144,8 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
+        self.pushButton.clicked.connect(self.load) # type: ignore
+        self.pushButton_3.clicked.connect(self.pic.clear) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -111,9 +154,8 @@ class Ui_MainWindow(object):
         self.pushButton.setText(_translate("MainWindow", "Выбрать файл"))
         self.label.setText(_translate("MainWindow", "Дорожный патруль"))
         self.pushButton_2.setText(_translate("MainWindow", "Каталог"))
-        self.pic.setText(_translate("MainWindow", "TextLabel"))
-        self.eticetka.setText(_translate("MainWindow", "TextLabel"))
         self.navs.setText(_translate("MainWindow", "TextLabel"))
+        self.pushButton_3.setText(_translate("MainWindow", "Clear"))
 
 
 if __name__ == "__main__":
