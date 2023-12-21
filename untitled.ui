@@ -96,7 +96,7 @@ border-color: rgb(121, 170, 210);
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 255, 0);
+     <string notr="true">
 color: rgb(255, 255, 127);</string>
     </property>
     <property name="text">
